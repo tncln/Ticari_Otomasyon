@@ -119,22 +119,22 @@ namespace Ticari_Otomasyon
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("UPDATE TBL_MUSTERILER SET AD=@P1,SOYAD=@P2,TELEFON=@P3, TELEFON2@P4,TC=@P5," +
-                "MAIL=@P6,IL=@P7,ILCE=@P8,VERGIDARE=@P9,ADRES=@P10 WHERE ID=@P11", bgl.baglanti());
-            komut.Parameters.AddWithValue("@P1", txtAd.Text);
-            komut.Parameters.AddWithValue("@P2", txtSoyad.Text);
-            komut.Parameters.AddWithValue("@P3", txtTelefon1.Text);
-            komut.Parameters.AddWithValue("@P4", txtTelefon2.Text);
-            komut.Parameters.AddWithValue("@P5", txtTC.Text);
-            komut.Parameters.AddWithValue("@P6", txtMail.Text);
-            komut.Parameters.AddWithValue("@P7", cmbIl.Text);
-            komut.Parameters.AddWithValue("@P8", cmbIlce.Text);
-            komut.Parameters.AddWithValue("@P9", txtVergiDairesi.Text);
-            komut.Parameters.AddWithValue("@P10", txtAdres.Text);
-            komut.Parameters.AddWithValue("@P11", txtID.Text);
-            komut.ExecuteNonQuery();
+            SqlCommand komutGuncelle = new SqlCommand("UPDATE TBL_MUSTERILER SET AD=@P1,SOYAD=@P2,TELEFON=@P3, TELEFON2=@P4,TC=@P5,MAIL=@P6,IL=@P7,ILCE=@P8,VERGIDAIRE=@P9,ADRES=@P10 WHERE ID=@P11", bgl.baglanti());
+            komutGuncelle.Parameters.AddWithValue("@P1", txtAd.Text);
+            komutGuncelle.Parameters.AddWithValue("@P2", txtSoyad.Text);
+            komutGuncelle.Parameters.AddWithValue("@P3", txtTelefon1.Text);
+            komutGuncelle.Parameters.AddWithValue("@P4", txtTelefon2.Text);
+            komutGuncelle.Parameters.AddWithValue("@P5", txtTC.Text);
+            komutGuncelle.Parameters.AddWithValue("@P6", txtMail.Text);
+            komutGuncelle.Parameters.AddWithValue("@P7", cmbIl.Text);
+            komutGuncelle.Parameters.AddWithValue("@P8", cmbIlce.Text);
+            komutGuncelle.Parameters.AddWithValue("@P9", txtVergiDairesi.Text);
+            komutGuncelle.Parameters.AddWithValue("@P10", txtAdres.Text);
+            komutGuncelle.Parameters.AddWithValue("@P11",txtID.Text);
+            komutGuncelle.ExecuteNonQuery();
             bgl.baglanti().Close();
             MessageBox.Show("Müşteri Bilgileri Güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Listele();
         }
     }
 }
