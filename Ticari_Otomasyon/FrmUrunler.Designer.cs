@@ -303,6 +303,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Name = "FrmUrunler";
+            this.ShowInTaskbar = false;
             this.Text = "Ürünler";
             this.Load += new System.EventHandler(this.FrmUrunler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

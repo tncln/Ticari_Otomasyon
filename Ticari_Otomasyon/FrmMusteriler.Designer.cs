@@ -348,6 +348,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Name = "FrmMusteriler";
+            this.ShowInTaskbar = false;
             this.Text = "Müşteriler";
             this.Load += new System.EventHandler(this.FrmMusteriler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();

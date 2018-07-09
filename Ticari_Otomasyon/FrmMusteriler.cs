@@ -40,6 +40,7 @@ namespace Ticari_Otomasyon
             Listele();
             SehirListesi();
             txtAd.Focus();
+            Temizle();
         }
 
         private void cmbIl_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,7 +74,7 @@ namespace Ticari_Otomasyon
             bgl.baglanti().Close();
             MessageBox.Show("Müşteri Sisteme Eklendi.", "Başarılı", MessageBoxButtons.OK);
             Listele();
-
+            Temizle();
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -113,7 +114,7 @@ namespace Ticari_Otomasyon
             {
                 MessageBox.Show("Silme İŞlemi İptal Edilmiştir...", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
+            Temizle();
 
         }
 
@@ -135,6 +136,21 @@ namespace Ticari_Otomasyon
             bgl.baglanti().Close();
             MessageBox.Show("Müşteri Bilgileri Güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Listele();
+            Temizle();
+        }
+        private void Temizle()
+        {
+            txtID.Text = "";
+            txtAd.Text = "";
+            txtAdres.Text = "";
+            txtMail.Text = "";
+            txtSoyad.Text = "";
+            txtTC.Text = "";
+            txtTelefon1.Text="";
+            txtTelefon2.Text = "";
+            txtVergiDairesi.Text = "";
+            cmbIl.Text = "";
+            cmbIlce.Text = "";
         }
     }
 }
