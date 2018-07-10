@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using DevExpress.XtraEditors;
+
 namespace Ticari_Otomasyon
 {
-    public partial class FrmUrunler : Form
+    public partial class FrmUrunler : XtraForm
     {
         public FrmUrunler()
         {

@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using DevExpress.XtraEditors;
+
 namespace Ticari_Otomasyon
 {
-    public partial class FrmFirmalar : Form
+    public partial class FrmFirmalar : XtraForm
     {
         public FrmFirmalar()
         {
@@ -22,6 +24,7 @@ namespace Ticari_Otomasyon
             FirmaListesi();
             SehirListesi();
             Temizle();
+            CariKodAciklamalar();
         }
         void FirmaListesi()
         {
@@ -132,12 +135,53 @@ namespace Ticari_Otomasyon
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
+            SqlCommand komut = new SqlCommand("UPDATE TBL_FIRMALAR SET AD=@P1,YETKILISTATU=@P2,YETKILIADSOYAD=@P3," +
+                "YETKILITC=@P4,SEKTOR=@P5,TELEFON1=@P6,TELEFON2=@P7,TELEFON3=@P8,MAIL=@P9,FAX=@P10,IL=@P11,ILCE=@P12," +
+                "VERGIDAIRE=@P13,ADRES=@P14,OZELKOD1=@P15,OZELKOD2=@P16,OZELKOD3=@P17 WHERE ID=@P18 ",bgl.baglanti());
+            komut.Parameters.AddWithValue("@P1", txtAd.Text);
+            komut.Parameters.AddWithValue("@P2", txtYGorev.Text);
+            komut.Parameters.AddWithValue("@P3", txtYetkili.Text);
+            komut.Parameters.AddWithValue("@P4", txtYetkiliTC.Text);
+            komut.Parameters.AddWithValue("@P5", txtSektor.Text);
+            komut.Parameters.AddWithValue("@P6", txtTelefon1.Text);
+            komut.Parameters.AddWithValue("@P7", txtTelefon2.Text);
+            komut.Parameters.AddWithValue("@P8", txtTelefon3.Text);
+            komut.Parameters.AddWithValue("@P9", txtMail.Text);
+            komut.Parameters.AddWithValue("@P10", txtFax.Text);
+            komut.Parameters.AddWithValue("@P11", cmbIl.Text);
+            komut.Parameters.AddWithValue("@P12", cmbIlce.Text);
+            komut.Parameters.AddWithValue("@P13", txtVergiDairesi.Text);
+            komut.Parameters.AddWithValue("@P14", txtAdres.Text);
+            komut.Parameters.AddWithValue("@P15", txtOzelKod1.Text);
+            komut.Parameters.AddWithValue("@P16", txtOzelKod2.Text);
+            komut.Parameters.AddWithValue("@P17", txtOzelKod3.Text);
+            komut.Parameters.AddWithValue("@P18", txtID.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Güncelleme İşlemi Başarılı.. Firma Silindi.","Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            FirmaListesi();
             Temizle();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
+            SqlCommand komut = new SqlCommand("Delete from TBL_FIRMALAR WHERE ID=@P1",bgl.baglanti());
+            komut.Parameters.AddWithValue("@P1",txtID.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            FirmaListesi();
+            MessageBox.Show("Silme İşlemi Başarılı","Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Temizle();
+        }
+        void CariKodAciklamalar()
+        {
+            SqlCommand komut = new SqlCommand("SELECT FIRMAKOD1 FROM TBL_KODLAR",bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                txtOzelKod1.Text = dr[0].ToString();
+            }
+            bgl.baglanti().Close();
         }
     }
 }

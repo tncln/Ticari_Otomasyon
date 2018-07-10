@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Ticari_Otomasyon
 {
-    public partial class FrmAnaModul : Form
+    public partial class FrmAnaModul : XtraForm
     {
         public FrmAnaModul()
         {
@@ -45,6 +46,16 @@ namespace Ticari_Otomasyon
                 fr3 = new FrmFirmalar();
                 fr3.MdiParent = this;
                 fr3.Show();
+            }
+        }
+        FrmPersonel fr4;
+        private void btnPersoneller_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (fr4 == null)
+            {
+                fr4 = new FrmPersonel();
+                fr4.MdiParent = this;
+                fr4.Show();
             }
         }
     }

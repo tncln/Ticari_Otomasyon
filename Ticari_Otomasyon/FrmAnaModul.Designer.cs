@@ -132,6 +132,7 @@
             this.btnPersoneller.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPersoneller.ItemAppearance.Normal.Options.UseFont = true;
             this.btnPersoneller.Name = "btnPersoneller";
+            this.btnPersoneller.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPersoneller_ItemClick);
             // 
             // btnGiderler
             // 
@@ -272,6 +273,7 @@
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
             this.Name = "FrmAnaModul";
+            this.ShowIcon = false;
             this.Text = "ANA SAYFA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

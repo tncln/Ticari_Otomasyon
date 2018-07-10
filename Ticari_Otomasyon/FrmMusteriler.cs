@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Ticari_Otomasyon
 {
-    public partial class FrmMusteriler : Form
+    public partial class FrmMusteriler : XtraForm
     {
         public FrmMusteriler()
         {
