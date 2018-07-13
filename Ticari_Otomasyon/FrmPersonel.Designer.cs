@@ -262,6 +262,11 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.Row.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.gridView1.Appearance.Row.BackColor2 = System.Drawing.Color.MediumTurquoise;
+            this.gridView1.Appearance.Row.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.gridView1.Appearance.Row.Options.UseBackColor = true;
+            this.gridView1.Appearance.Row.Options.UseBorderColor = true;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "")});
